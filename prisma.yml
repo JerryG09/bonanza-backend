@@ -1,2 +1,12 @@
-endpoint: https://eu1.prisma.sh/oyebamiji-jeremiah-5cb27e/sonanzaa/dev
+endpoint: ${env:PRISMA_ENDPOINT}
 datamodel: datamodel.prisma
+# secret: ${env:PRISMA_SECRET}
+
+hooks:
+  post-deploy:
+      - graphql get-schema -p prisma
+
+      
+generate:
+  - generator: javascript-client
+    output: ./generated/prisma-client/
