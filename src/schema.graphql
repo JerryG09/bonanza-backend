@@ -15,6 +15,7 @@ type Mutation {
     price: Int
   ): Item!
   deleteItem(id: ID!): Item
+  signup(email: String!, password: String!, name: String!): User!
 }
 
 type Query {
